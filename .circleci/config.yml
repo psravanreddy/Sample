@@ -22,6 +22,7 @@ jobs:
       - run: mkdir Patient
       - run: pwd Patient-0.1
       - run: mv /home/circleci/angular-cli-circleci/dist /home/circleci/angular-cli-circleci/Patient-0.1
+      - run: mv /home/circleci/angular-cli-circleci/Patient-0.1  /home/circleci/angular-cli-circleci/Patient-0.1.war
       #- run: jar cvf Patient-0.1.tar
       - store_artifacts:
           path: Patient-0.1
