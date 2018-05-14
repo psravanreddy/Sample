@@ -16,7 +16,7 @@ jobs:
           paths:
             - ~/.cache/yarn
             - ./node_modules
-      - run: yarn npm build:prod
+      - run: yarn run build:prod
       
       - store_artifacts:
           path: dist
