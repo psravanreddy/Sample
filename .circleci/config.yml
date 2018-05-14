@@ -7,16 +7,15 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: install-dependencies
-          command: yarn install
+          command: npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ~/.cache/yarn
             - ./node_modules
-      - run: yarn ng build --prod
+      - run: ng build --prod
       
       #- run: yarn ng test
       - run: mkdir Patient
