@@ -20,7 +20,7 @@ jobs:
       
       #- run: yarn ng test
       - run: mkdir Patient
-      - run: ls -lrt patient
+      - run: pwd Patient
       - store_artifacts:
           path: dist
       #- run:  mv /home/circleci/angular-cli-circleci/dist home/circleci/angular-cli-circleci/Patient-0.1.war
