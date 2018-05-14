@@ -21,9 +21,10 @@ jobs:
       #- run: yarn ng test
       - run: mkdir Patient
       - run: pwd Patient-0.1
-      - store_artifacts:
-          path: dist
       - run:  mv /home/circleci/angular-cli-circleci/dist /home/circleci/angular-cli-circleci/Patient-0.1
+      - store_artifacts:
+          path: Patient-0.1
+      
           
           
           
