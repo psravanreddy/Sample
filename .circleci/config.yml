@@ -16,11 +16,12 @@ jobs:
           paths:
             - ~/.cache/yarn
             - ./node_modules
-      - run: yarn ng build --prod
+      - run: yarn npm build:prod
       
-      - run: ls -lrt ~/dist
+      - store_artifacts:
+          path: dist
+             
       
-      - run: find dist
       #- run:
           #name: angular-build
           #command: yarn ng -- build --prod --aot --no-progress
