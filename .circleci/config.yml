@@ -18,6 +18,8 @@ jobs:
             - ./node_modules
       - run: yarn ng build --prod
       
+      - run: ls -lrt ~/dist
+      
       - run: find dist
       #- run:
           #name: angular-build
