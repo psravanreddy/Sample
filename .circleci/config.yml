@@ -18,10 +18,11 @@ jobs:
             - ./node_modules
       - run: yarn ng -- build --prod
       
-      - run: yarn ng test
+      #- run: yarn ng test
       
       - store_artifacts:
           path: dist
+          target:dist.war
              
       
       #- run:
