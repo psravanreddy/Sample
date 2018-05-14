@@ -16,7 +16,7 @@ jobs:
           paths:
             - ./node_modules
             
-      - run: npm run build:prod
+      - run: npm ng build --prod
       
       #- run: yarn ng test
       - run: mkdir Patient
