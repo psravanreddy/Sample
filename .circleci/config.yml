@@ -16,7 +16,7 @@ jobs:
           paths:
             - ~/.cache/yarn
             - ./node_modules
-      - run: npm run buid:prod
+      - run: npm run build:prod
       - run: find dist
       #- run:
           #name: angular-build
