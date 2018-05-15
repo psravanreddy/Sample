@@ -19,7 +19,7 @@ jobs:
       - run: yarn ng build --prod
       #- run: yarn test
       
-      #- run: yarn ng test
+      - run: yarn test -- --single-run --no-progress
       - run: mkdir Patient
       - run: pwd Patient-0.1
       - run: mv /home/circleci/angular-cli-circleci/dist /home/circleci/angular-cli-circleci/Patient-0.1
