@@ -21,7 +21,7 @@ jobs:
        #- run:
           #name: angular-build
           #command: yarn ng -- build --prod --aot --no-progress
-      - run: yarn test --single-run 
+      #- run: yarn test --single-run 
       #- store_artifacts:
           #path: test-results.xml
           #prefix: tests
