@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/angular-cli-circleci
+    working_directory: ~/Sample
     docker:
       - image: circleci/node:8
     steps:
@@ -21,9 +21,7 @@ jobs:
        #- run:
           #name: angular-build
           #command: yarn ng -- build --prod --aot --no-progress
-      - run:
-          name: angular-test
-          command: yarn test --single-run 
+      - run: yarn test --single-run 
       #- store_artifacts:
           #path: test-results.xml
           #prefix: tests
@@ -36,7 +34,7 @@ jobs:
       
       - run: mkdir Patient
       - run: pwd Patient-0.1
-      - run: mv /home/circleci/angular-cli-circleci/dist /home/circleci/angular-cli-circleci/Patient-0.1
+      - run: mv /home/circleci/Sample/dist /home/circleci/Sample/Patient-0.1
       #- run: mv /home/circleci/angular-cli-circleci/Patient-0.1  /home/circleci/angular-cli-circleci/Patient-0.1.war
       
       - run: 
