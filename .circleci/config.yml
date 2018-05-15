@@ -18,8 +18,22 @@ jobs:
             - ./node_modules
       - run: yarn ng build --prod
       #- run: yarn test
+       #- run:
+          #name: angular-build
+          #command: yarn ng -- build --prod --aot --no-progress
+      - run:
+          name: angular-test
+          command: yarn test --single-run 
+      #- store_artifacts:
+          #path: test-results.xml
+          #prefix: tests
+      #- run:
+          #name: angular-lint
+          #command: yarn lint -- --formatters-dir ./tslint-formatters --format junit -o tslint.xml
+      #- store_artifacts:
+          #path: tslint.xml
+          #prefix: lint
       
-      - run: yarn test -- --single-run --no-progress
       - run: mkdir Patient
       - run: pwd Patient-0.1
       - run: mv /home/circleci/angular-cli-circleci/dist /home/circleci/angular-cli-circleci/Patient-0.1
@@ -40,18 +54,4 @@ jobs:
           
              
       
-      #- run:
-          #name: angular-build
-          #command: yarn ng -- build --prod --aot --no-progress
-      #- run:
-          #name: angular-test
-          #command: yarn test -- --single-run --no-progress
-      #- store_artifacts:
-          #path: test-results.xml
-          #prefix: tests
-      #- run:
-          #name: angular-lint
-          #command: yarn lint -- --formatters-dir ./tslint-formatters --format junit -o tslint.xml
-      #- store_artifacts:
-          #path: tslint.xml
-          #prefix: lint
+     
