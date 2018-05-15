@@ -26,11 +26,11 @@ jobs:
       
       - run: 
            name: Packaging Patient-0.1
-           command: zip -r Patient-0.1.zip Patient-0.1
+           command: war -r Patient-0.1.war Patient-0.1
       - run: pwd Patient-0.1
       #- run: jar cvf Patient-0.1.tar
       - store_artifacts:
-          path: Patient-0.1.zip
+          path: Patient-0.1.war
       
           
       
