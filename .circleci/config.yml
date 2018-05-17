@@ -113,13 +113,13 @@ workflows:
       - SIT:
           requires:
             - Hold
-      - Hold:
+      - Hold1:
           type: approval
           requires:
             - SIT
       - UAT:
           requires:
-            - Hold
+            - Hold1
      
       
           
