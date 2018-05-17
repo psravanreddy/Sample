@@ -44,8 +44,89 @@ jobs:
       #- run: jar cvf Patient-0.1.tar
       - store_artifacts:
           path: Patient-0.1.zip
-      
           
+  test:
+    working_directory: ~/Sample
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install-dependencies
+          command: yarn install
+      
+  Dev:
+    working_directory: ~/Sample
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install-dependencies
+          command: yarn install
+  SIT:
+    working_directory: ~/Sample
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install-dependencies
+          command: yarn install  
+          
+  UAT:
+    working_directory: ~/Sample
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install-dependencies
+          command: yarn install
+          
+  
+          
+          
+workflows:
+  version: 2
+  Build-Test-Deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - Dev:
+          requires:
+            - test
+      - Hold:
+          type: approval
+          requires:
+            - Dev
+      - SIT:
+          requires:
+            - Hold
+      - Hold:
+          type: approval
+          requires:
+            - SIT
+      - UAT:
+          requires:
+            - SIT
+      - Hold:
+          type: approval
+          requires:
+            - UAT
+      - PROD:
+          requires:
+            - Hold
       
           
           
