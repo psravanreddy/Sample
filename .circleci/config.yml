@@ -117,16 +117,16 @@ workflows:
           type: approval
           requires:
             - SIT
-      - UAT:
-          requires:
-            - SIT
-      - Hold:
-          type: approval
-          requires:
-            - UAT
-      - PROD:
-          requires:
-            - Hold
+      #- UAT:
+          #requires:
+            #- SIT
+      #- Hold:
+          #type: approval
+          #requires:
+            #- UAT
+      #- PROD:
+          #requires:
+            #- Hold
       
           
           
